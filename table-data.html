@@ -1,1 +1,20 @@
+
 <!DOCTYPE html>
+<h2>Bible Versions</h2>
+
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Cost</td>
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr ng-repeat="biblia in biblias">
+            <td>{{ biblia.name }}</td>
+            <td>${{ biblia.price }}</td>
+        </tr>
+        
+    </tbody>
+</table>
