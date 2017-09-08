@@ -1,27 +1,21 @@
-<!-- index.html -->
-<!-- will hold the main template for our app -->
-
 <!DOCTYPE html>
-<html ng-app="routerApp">
+<html>
 <head>
 
     <!-- CSS (load bootstrap) -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style>
         .navbar { border-radius:0; }
     </style>
 
     <!-- JS (load angular, ui-router, and our custom js file) -->
-    <!-- TODO: Fix the ReferenceError: angular is not defined PATH: var routerApp = angular.module("routerApp", ["ui.router"]); -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.13/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-    <script> var routerApp = angular.module('routerApp', ['ui.router']); </script>
-    <script src="/app.js"></script>
-    <meta charset="UTF-8">
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
 </head>
 
 <!-- apply our angular app to our site -->
-<body>
+<body ng-app="routerApp">
 
 <!-- NAVIGATION -->
 <nav class="navbar navbar-inverse" role="navigation">
@@ -35,11 +29,14 @@
 </nav>
 
 <!-- MAIN CONTENT -->
+<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
 <div class="container">
-
-    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
     <div ui-view></div>
+</div>
 
+<div class="text-center">
+    <p>An Example AngularUI Router <a href="https://ui-router.github.io/ng1/tutorial/hellosolarsystem" target="_blank">UI-Routerouter.github.io</a></p>
+    <p>View the full tutorial @: <a href="http://www.bogotobogo.com/AngularJS/AngularJS_ui-route-vs-ngRoute-multiple-views-nested-views.php" target="_blank">AngularJS Routing using UI-Router</a></p>
 </div>
 
 </body>
