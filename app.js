@@ -1,5 +1,4 @@
-
-var routerApp = angular.module('routerApp', ['ui.router'])
+var routerApp = angular.module('routerApp', ['ui.router']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
 
@@ -8,64 +7,65 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
         // HOME STATES AND NESTED VIEWS ========================================
-            .state('home', {
-               url: '/home',
-               templateUrl: 'partial-home.html'
+        .state('home', {
+            url: '/home',
+            templateUrl: 'partial-home.html'
         })
 
         // nested list with custom controller
-            .state('home.list', {
-                url: '/list',
-                templateUrl: 'partial-home-list.html',
-                controller: function($scope) {
-                    $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle', 'Japanese Spitz'];
-                }
-            })
-
-            // nested list with just some random string data
-            .state('home.paragraph', {
-                url: '/paragraph',
-                template: 'It is a bright sunshiny day!.'
-            })
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-
-          .state('about', {
-             url: '/about',
-             views: {
-
-            // the main template will be placed here (relatively named)
-              '': { templateUrl: 'partial-about.html' },
-
-            // the child views will be defined here (absolutely named)
-               'columnOne@about': { template: 'Look I am a column!' },
-
-            // for column two, we'll define a separate controller
-               'columnTwo@about': {
-                templateUrl: 'table-data.html',
-                controller: 'scotchController'
+        .state('home.list', {
+            url: '/list',
+            templateUrl: 'partial-home-list.html',
+            controller: function($scope) {
+                $scope.prophets = ['Moses', 'Samuel', 'Elijah' , 'Elisha', 'Isaiah', 'Ezekiel', 'Daniel'];
             }
-        }
+        })
 
-    });
+        // nested list with just some random string data
+        .state('home.paragraph', {
+            url: '/paragraph',
+            template: 'For God So Loved The World, That He Gave His Only Son, And That Whosoever Believes In Him Shall Not Perish, But Shall Have Eternal Life..'
+        })
 
-}); // closes $routerApp.config()
+        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+        .state('about', {
+            url: '/about',
+            views: {
+                '': { templateUrl: 'partial-about.html' },
+                'columnOne@about': { template: 'I am just a regular column!' },
+                'columnTwo@about': {
+                    templateUrl: 'table-data.html',
+                    controller: 'BibliaController'
+                }
+            }
 
-// let's define the scotch controller that we call up in the about state
-routerApp.controller('scotchController', function($scope) {
+        });
+
+});
+
+routerApp.controller('BibliaController', function($scope) {
 
     $scope.message = 'test';
 
-    $scope.scotches = [
+    $scope.biblias = [
         {
-            name: 'Macallan 12',
-            price: 50
+            name: 'Biblia Ya Kiswahili',
+            price: 2975
         },
         {
-            name: 'Chivas Regal Royal Salute',
-            price: 10000
+            name: 'King James Version ',
+            price: 1850
         },
         {
-            name: 'Glenfiddich 1937',
+            name: 'New International Version ',
+            price: 2350
+        },
+        {
+            name: 'The Amplified Version ',
+            price: 1350
+        },
+        {
+            name: 'The Good News Bible ',
             price: 20000
         }
     ];
